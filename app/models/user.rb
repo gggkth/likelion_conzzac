@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  has_many :scraps
+  has_many :scraped_clips, through: :scraps, source: :clip
+  has_many :frequents
+  has_many :frequent_clips, through: :frequents, source: :clip
+  has_many :keywords
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
