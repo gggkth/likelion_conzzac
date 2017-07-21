@@ -4,7 +4,6 @@ class CreateClips < ActiveRecord::Migration
       t.text :thumbnail_url
       t.string :title
       t.text :content
-      t.integer :like
       t.integer :view
       t.text :clip_url
       t.integer :uploader_id

@@ -48,4 +48,14 @@ class ClipController < ApplicationController
     redirect_to :back
   end  
   
+  def like_toggle
+    @clip = Clips.find(params[:id])
+    if current_user.like_this?(@clip)
+      Like.find_by(user_id: current_user.id, clip_id: clip.id).destroy
+    else
+      Like.create(user_id: current_user, clip_id: @clip.id)
+    end 
+    redirect_to :back
+  end  
+  
 end

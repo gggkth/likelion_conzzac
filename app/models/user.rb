@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :frequents
   has_many :frequent_clips, through: :frequents, source: :clip
   has_many :keywords
+  has_many :likes
+  has_many :liked_clips, through: :likes, source: :clip
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -78,6 +80,10 @@ class User < ActiveRecord::Base
   
   def scrap_this?(clip)
     Scrap.find_by(user_id: self.id, clip_id: clip.id).present?
+  end
+  
+  def like_this?(clip)
+    Like.find_by(user_id: self.id, clip_id: clip.id).present?
   end
   
   def searched_this?(keyword)
