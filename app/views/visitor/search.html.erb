@@ -1,0 +1,14 @@
+<div style="margin-top: 50px; margin-left: 200px">
+    <%= form_tag ("/search") do %>
+        <%= text_field_tag "search", nil, placeholder: "검색" %>
+        <%= submit_tag "Search!" %>
+    <% end %>
+    <h1>#<%= params[:search] %></h1>
+    <% @title.each_with_index do |title, index| %>
+        <div>
+        <img src="<%= @thumnail[index]["src"] %>">
+        <a href="<%=@home_url%><%=title["href"]%>"><%= title["title"] %></a>
+        </div>
+        <hr/>
+    <% end %>
+</div>
