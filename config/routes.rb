@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   root 'visitor#main'
   
   resources :clip, except: [:new, :edit, :update, :delete, :show]
-  post 'scrap_toggle/:id' => 'clip#scrap_toggle'
+  post 'scrap/:id' => 'clip#scrap_toggle'
+  post 'like/:id' => 'clip#like_toggle'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

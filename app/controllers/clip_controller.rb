@@ -3,9 +3,9 @@ class ClipController < ApplicationController
   #동영상 출력하는 곳
   def index
     
+    @keyword = params[:search]
     #검색했을 경우
-    if params[:search]
-      @keyword = params[:search]
+    if @keyword
       
       #user가 해당 키워드로 서치한 적이 있는경우 vs 없는 경우
       if current_user.searched_this?(@keyword)
