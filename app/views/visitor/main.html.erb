@@ -1,15 +1,21 @@
-
-<div style="margin-top: 50px; margin-left: 200px">
-    <%= form_tag ("/search") do %>
-        <%= text_field_tag "search", nil, placeholder: "검색", :enforce_utf8 => false %>
-        <%= submit_tag "Search!" %>
-    <% end %>
-    <h1>#쿡방</h1>
-    <% @title.each_with_index do |title, index| %>
-        <div>
-        <img src="<%= @thumnail[index]["src"] %>">
-        <a href="<%=@home_url%><%=title["href"]%>"><%= title["title"] %></a>
+<div class="container">
+  <div class="garo-item">
+    <!--작은 타이틀: 최신 동영상-->
+    <div class="container"><h3>최신 동영상</h3></div>
+    
+    <!--최신 동영상 목록-->
+    <div class="row container">
+      <!--최신 동영상 하나하나 -->
+      <% @title.each_with_index do |title, index| %>
+        <div class="col item img-fluid">
+          <a href="<%=@home_url%><%=title["href"]%>"><img src="<%= @thumnail[index]["src"] %>"><%#= title["title"] %></a>
         </div>
-        <hr/>
-    <% end %>
+      <% end %>
+    </div>
+     
+  </div>
 </div>
+
+
+<!--마우스오버시-->
+<!--재생버튼/타이틀/내용/좋아요/보관하기-->

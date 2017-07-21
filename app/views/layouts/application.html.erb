@@ -1,48 +1,94 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Conzzac</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Conzzac</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  </head>
+  <!--폰트어썸-->
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <!--부트스트랩4-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-  <body>
-    <nav class="navbar navbar-toggleable-md navbar-light" style="background-color:#7DA3BC;">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="/">Conzzac</a>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Category <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">MyPage</a>
-      </li>
-    </ul>
-    <!--<form class="form-inline my-2 my-lg-0">-->
-    <!--  <input class="form-control mr-sm-2" type="text" placeholder="Search">-->
-    <!--  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-    <!--</form>-->
+<body>
+  <nav class="navbar navbar-toggleable-md navbar-light">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     
-    <% if user_signed_in? && current_user.profile_img? %>
-      <img style="height: 40px; width: 40px; border-radius: 70px;-moz-border-radius: 70px;-khtml-border-radius: 70px;-webkit-border-radius: 70px;"src="<%= current_user.profile_img %>" />
-    <% end %>
-    <% if user_signed_in? %>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => 'item borderless ml-2 mt-1') %>
-    <% else %>
-      <%= link_to('Login', new_user_session_path, :class => 'item borderless mt-1') %>
-    <% end %>
-  </div>
-</nav>
-    <%= yield %>
-  </body>
+    <!--로고-->
+    <a class="navbar-brand" href="/">Conzzac</a>
+
+    <!--좌측 메뉴-->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active dropdown">
+          <a class="nav-link" href="#">Category <span class="sr-only">(current)</span></a>
+          <div class="dropdown-content">
+            <ul>
+              <li>쿡방</li>
+              <li>먹방</li>
+              <li>게임</li>
+              <li>힐링</li>
+              <li>홈트</li>
+              <li>뷰티</li>
+              <li>펫</li>
+            </ul>
+          </div>
+        </li>
+        
+      </ul>
+      <!--<form class="form-inline my-2 my-lg-0">-->
+      <!--  <input class="form-control mr-sm-2" type="text" placeholder="Search">-->
+      <!--  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+      <!--</form>-->
+      
+      <!--검색창-->
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <div class="search">
+        <%= form_tag ("/search") do %>
+        <%= text_field_tag "search", nil, placeholder: "검색", :enforce_utf8 => false %>
+        <%= submit_tag "Search!" %>
+      <% end %>
+      </div>
+      
+
+      
+      <!--우측 로그인-->
+      <% unless user_signed_in? %>
+        <%= link_to('Login', new_user_session_path, :class => 'item borderless mt-1') %>
+      <% else %>
+        <div class="nav-item dropdown">
+          <% if user_signed_in? && current_user.profile_img? %>
+            <img style="height: 40px; width: 40px; border-radius: 70px;-moz-border-radius: 70px;-khtml-border-radius: 70px;-webkit-border-radius: 70px;"src="<%= current_user.profile_img %>" />
+          <% end %>
+          <a class="nav-link" href="#">MyPage</a>
+          <div class="dropdown-content">
+            <ul>
+              <li>내 정보</li>
+              <li>
+                <% if user_signed_in? %>
+                  <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => 'item borderless ml-2 mt-1') %>
+                <% else %>
+                  <%= link_to('Login', new_user_session_path, :class => 'item borderless mt-1') %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <% end %>
+      
+      
+
+    </div>
+  </nav>  
+
+  <%= yield %>
+</body>
 </html>
