@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20170721070520) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "frequency"
+    t.integer  "frequent"
   end
 
   create_table "identities", force: :cascade do |t|

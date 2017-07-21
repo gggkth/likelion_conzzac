@@ -7,7 +7,7 @@
     <div class="row container">
       <!--최신 동영상 하나하나 -->
       <% @title.each_with_index do |title, index| %>
-        <div class="col item img-fluid">
+        <div class="col item img-fluid" onmouseover="">
           <a href="<%=@home_url%><%=title["href"]%>"><img src="<%= @thumnail[index]["src"] %>"><%#= title["title"] %></a>
         </div>
       <% end %>
