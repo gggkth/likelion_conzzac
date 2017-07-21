@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   post '/search' => 'visitor#search'
   get '/search' => 'visitor#search'
   root 'visitor#main'
+  
+  resources :clip, except: [:new, :edit, :update, :delete, :show]
+  post 'scrap/:id' => 'clip#scrap_toggle'
+  post 'like/:id' => 'clip#like_toggle'
 
 end
