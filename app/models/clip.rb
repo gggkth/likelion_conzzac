@@ -14,4 +14,8 @@ class Clip < ActiveRecord::Base
   has_many :scrap_users, through: :scraps, source: :user
   has_many :frequents
   has_many :frequent_users, through: :frequents, source: :user
+  
+  def self.search(search)
+    where("title LIKE ? OR content LIKE ?", "%#{search}%", "%#{search}%")
+  end
 end

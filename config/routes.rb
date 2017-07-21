@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   post '/search' => 'visitor#search'
   get '/search' => 'visitor#search'
   root 'visitor#main'
+  
+  resources :clip, except: [:new, :edit, :update, :delete, :show]
+  post 'scrap_toggle/:id' => 'clip#scrap_toggle'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
