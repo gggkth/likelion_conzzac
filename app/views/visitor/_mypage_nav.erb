@@ -1,0 +1,55 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-inverse bg-inverse mb-3">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!--<span class="fa fa-star scrap-star" aria-hidden="true"></span>-->
+  <a class="navbar-brand" href="/mypage">SCRAP</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          CATEGORY
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <!--<ul id="category-s">-->
+          <!--  <li>쿡방</li>-->
+          <!--  <li>먹방</li>-->
+          <!--  <li>게임</li>-->
+          <!--  <li>힐링</li>-->
+          <!--  <li>홈트</li>-->
+          <!--  <li>뷰티</li>-->
+          <!--  <li>펫</li>-->
+          <!--</ul>-->
+          <a class="dropdown-item" href="/mypage/category/쿡방" value="cooking" name="name">쿡방</a>
+          <a class="dropdown-item" href="/mypage/category/먹방" value="eating" name="name">먹방</a>
+          <a class="dropdown-item" href="/mypage/category/게임" value="game" name="name">게임</a>
+          <a class="dropdown-item" href="/mypage/category/힐링" value="healing" name="name">힐링</a>
+          <a class="dropdown-item" href="/mypage/category/홈트레이닝" value="homeTraining" name="name">홈트레이닝</a>
+          <a class="dropdown-item" href="/mypage/category/뷰티" value="beauty" name="name">뷰티</a>
+          <a class="dropdown-item" href="/mypage/category/펫" value="pet" name="name">펫</a>
+        </div>
+        <!--<input type="text" id="s-input">-->
+      </li>
+    </ul>
+    <%= form_tag ("/mypage/search"), method: :get,class:"form-inline my-2 my-lg-0" do %>
+      <%= text_field_tag "search", nil, placeholder: "스크랩 검색", :enforce_utf8 => false,class:"form-control  mr-sm-2" %>
+      <%= button_tag(type: "submit", class: "btn btn-outline-info") do %>
+        <span class="fa fa-search" aria-hidden="true"></span>
+      <% end %>
+    <% end %>
+  </div>
+</nav>
+
+<!--// <script>-->
+<!--//   $('#category-s li').click(function(){-->
+<!--//       var x = $(this).text();-->
+<!--//   })-->
+  
+<!--//   $.ajax({-->
+<!--//     url:"visitor/mypage",   // your controller-->
+<!--//     data: x, // data-->
+<!--//     success: success,-->
+<!--//     dataType: "script" // not 100% sure here might need to google-->
+<!--//   });-->
+<!--// </script>-->
