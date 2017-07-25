@@ -1,0 +1,15 @@
+<h1>검색결과 or 카테고리 선택 시 동영상 출력되는 곳</h1>
+<%if @keyword%>
+  <%@clips.each do |c|%>
+    <%=link_to(c.clip_url) do%>
+      <div>
+        <%= image_tag(c.thumbnail_url) %><!--썸네일-->
+        <p>제목 : <%=c.title%></p>
+        <p><%=c.content%></p>
+        <p>조회수: <%=c.view%></p>
+        <p>좋아요: <%=c.likes.count%></p>
+        <p>스크랩 여부: <%=current_user.scrap_this%></p>
+      </div>
+    <%end%>  
+  <%end%>
+<%end%>  

@@ -101,3 +101,106 @@ h3 {
     
     
 }
+
+.user-email{
+    margin-top:20px;
+    color:white;
+}
+
+.user-info{
+  position:relative;
+  height: 200px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+    
+}
+
+.mypage{
+  padding: 60px 0px 0px 0px;
+}
+
+.line{
+  border: solid 1px #afafaf;
+  margin: 20px 0px 20px 0px;
+}
+
+.scrap-star{
+  color:#ffd700 !important;
+  font-size:1rem;
+}
+
+.scraped{
+  color:white;
+  margin:50px 0 0 0 ;
+}
+
+.mypage-eng{
+  color:#777;
+}
+
+
+
+
+.hiddenForAnimation{ opacity:0; }
+.login{
+  background-color:white;
+  width:333px;
+}
+
+.login-button{
+  width:100%;
+  padding:5px 5px;
+  border:none;
+  background-color:rgb(33, 133, 89);
+  color:white;
+  cursor:pointer;
+}
+
+.social-login{
+  width:100%;
+  padding:5px 5px;
+  border:none;
+  color:white;
+  cursor:pointer;
+}
+
+.facebook{
+ background-color:rgb(6, 162, 203);
+}
+
+.google{
+ background-color:rgb(221, 30, 47);
+}
+
+.kakao{
+ background-color:rgb(235, 176, 53);
+}
+
+.login-field{
+  border:none!important;
+  background-color:#ededed;
+  width:80%;
+}
+
+.mybutton{
+  color:black;
+  border: solid 1px black ;
+  border-radius:5px;
+  padding: 5px 10px;
+  font-size:0.9rem;
+}
+
+.mybutton:hover{
+  color:white!important;
+  text-decoration: none!important;
+  background-color:black;
+  
+  -webkit-transition:.5s;
+}
+
+.login-fa{
+  font-size:1.2rem;
