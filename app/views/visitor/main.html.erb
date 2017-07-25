@@ -1,18 +1,10 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-  $("div.item" ).mouseover(function() {
-      $("div.itemdiv.item-info").show();
-    })
-</script>
-<div class="item">
-  이미지
-  <div class="item-info">
-  동영상
-  </div>
-</div>
 
-
-
+<head>
+  <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="owlcarousel/owl.carousel.min.js"></script>
+</head>
 
 <div class="container">
   <!--최신 동영상-->
@@ -62,8 +54,8 @@
 </div>
 <hr>
 
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" role="listbox">
+<div class="owl-carousel">
+  <div>
     <!--<div class="carousel-item active">-->
     <!--  <img class="d-block img-fluid" src="..." alt="First slide">-->
     <!--</div>-->
@@ -79,15 +71,21 @@
     <!--  <img class="d-block img-fluid" src="..." alt="Third slide">-->
     <!--</div>-->
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
 
 <!--마우스오버시-->
 <!--재생버튼/타이틀/내용/좋아요/보관하기-->
+
+
+<script>
+  $('.owl-carousel').owlCarousel({
+    loop:true, 
+    margin:10, 
+    responsiveClass:true, 
+    responsive:{ 
+    0:{ items:1, nav:true }, 
+    600:{ items:3, nav:false }, 
+    1000:{ items:5, nav:true, loop:false } 
+    } 
+  })
+</script>
