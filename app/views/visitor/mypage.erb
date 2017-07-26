@@ -13,16 +13,22 @@
         </p>
       </li>  
       <li >
-        <p class="align-middle">
-          <p>가입일</p>
-          <span class="count"><%=current_user.created_at.in_time_zone("Asia/Seoul").strftime("%Y")%></span>/
-          <span class="count"><%=current_user.created_at.in_time_zone("Asia/Seoul").strftime("%m")%></span>/
-          <span class="count"><%=current_user.created_at.in_time_zone("Asia/Seoul").strftime("%d")%></span>
-        </p>
+        <div class="fa fa-calendar-check-o mr-3" aria-hidden="true"></div>
+        <div class="d-inline-block">
+          <p class="mb-1 d-inline-block">가입일</p>
+          <div>
+            <span class="count"><%=current_user.created_at.in_time_zone("Asia/Seoul").strftime("%Y")%></span>/
+            <span class="count"><%=current_user.created_at.in_time_zone("Asia/Seoul").strftime("%m")%></span>/
+            <span class="count"><%=current_user.created_at.in_time_zone("Asia/Seoul").strftime("%d")%></span>
+          </div>
+        </div>
       </li>
       <li>
-        <p>클릭한 동영상</p>
-        <p><%=current_user.frequents.size%>개</p>
+        <div class="fa fa-mouse-pointer mr-3" aria-hidden="true"></div>
+        <div class="d-inline-block">
+          <p class="mb-1 d-inline-block">클릭수</p>
+          <div><%=current_user.frequents.size%>번</div>
+        </div>  
       </li>
     </ul>
   </section><br>

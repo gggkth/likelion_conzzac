@@ -196,6 +196,23 @@ h3 {
   width:80%;
 }
 
+.facebook:hover {
+	box-shadow: inset 22rem 0 0 0 #036b86;
+	-webkit-transition:.5s;
+}
+.login-button:hover {
+	box-shadow: inset -22rem 0 0 0 #195f40;
+	-webkit-transition:.5s;
+} 
+.google:hover {
+	box-shadow: inset -22rem 0 0 0 #ad222f;
+	-webkit-transition:.5s;
+} 
+.kakao:hover {
+	box-shadow: inset 22rem 0 0 0 #c59530;
+	-webkit-transition:.5s;
+} 
+
 .mybutton{
   color:black;
   border: solid 1px black ;
@@ -229,14 +246,61 @@ h3 {
 }
 
 .mypage-header li{
-  /*list-style:none;*/
-  /*display: inline-block;*/
+  display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    width: 2%;
 }
+
+.mypage-header li p:first-child{
+  font-weight: bold;
+  font-size:1.5em;
+}
+
+/*.mypage-header li p:not(:first-child){*/
+/*  font-size:0.1em;*/
+/*}*/
 
 .mypage-header{
   list-style: none;
     padding: 0;
     margin: 0;
-  display: flex;
-    justify-content: space-between;
+    display: table;
+    table-layout: fixed;
+}
+
+.mypage-header>li>.fa{
+  font-size:4rem;
+  color:#bfbfbf;
+}
+
+.mypage-header>li>div:nth-child(2)>div{
+  color:#5bc0de;
+  font-size:1.2rem;
+}
+
+/*.mypage-header>li>.fa::after{*/
+/*  margin-right:50px;*/
+/*}*/
+
+.login-image{
+  
+  width:10rem;
+  
+}
+
+.margin{
+  height:4rem;
+}
+
+.sign-up-entire{
+  position:relative;
+  top:-5rem;
+  color:black !important;
+}
+.sign-up-entire p{
+  color:black !important;
+}
+.gray-color-font{
+  color:#777!important;
 }
