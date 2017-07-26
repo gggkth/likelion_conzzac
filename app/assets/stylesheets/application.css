@@ -117,14 +117,14 @@ h3 {
 }
 
 .user-info{
-  position:relative;
-  height: 200px;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  align-items: center;
+  /*position:relative;*/
+  /*height: 200px;*/
+  /*display: -webkit-flex;*/
+  /*display: flex;*/
+  /*-webkit-justify-content: center;*/
+  /*justify-content: center;*/
+  /*-webkit-align-items: center;*/
+  /*align-items: center;*/
     
 }
 
@@ -158,6 +158,7 @@ h3 {
 .login{
   background-color:white;
   width:333px;
+  color:black;
 }
 
 .login-button{
@@ -211,6 +212,31 @@ h3 {
   -webkit-transition:.5s;
 }
 
+.mybutton-reverse{
+  color:#aaa;
+  border-radius:5px;
+  padding: 5px 0px;
+}
+
+.mybutton-reverse:hover{
+  color:#5bc0de!important;
+  text-decoration: none!important;
+  -webkit-transition:.5s;
+}
+
 .login-fa{
   font-size:1.2rem;
+}
+
+.mypage-header li{
+  /*list-style:none;*/
+  /*display: inline-block;*/
+}
+
+.mypage-header{
+  list-style: none;
+    padding: 0;
+    margin: 0;
+  display: flex;
+    justify-content: space-between;
 }

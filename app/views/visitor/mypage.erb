@@ -1,16 +1,31 @@
 <div class="container mypage">
   <section class="user-info">
-    <div align="center">
-      <%if current_user.profile_img?%>
-        <%=image_tag(current_user.profile_img)%>
-      <%else%>
-        <%=image_tag('if_profle_1055000.png')%>
-      <%end%>
-      <p class="user-email"><%=current_user.email%><br>
-      <%=link_to 'sign out',destroy_user_session_path, method: :delete%>
-      </p>
-    </div>
-  </section>
+    <ul class="mypage-header">
+      <li>
+        <%if current_user.profile_img?%>
+          <%=image_tag(current_user.profile_img)%>
+        <%else%>
+          <%=image_tag('if_profle_1055000.png',class:"d-inline-block mr-3")%>
+        <%end%>
+        <p class="user-email d-inline-block align-middle">
+          <%=current_user.email%><br>
+          <%=link_to 'Sign out',destroy_user_session_path,class:"mybutton-reverse ", method: :delete%>
+        </p>
+      </li>  
+      <li >
+        <p class="align-middle">
+          <p>가입일</p>
+          <span class="count"><%=current_user.created_at.in_time_zone("Asia/Seoul").strftime("%Y")%></span>/
+          <span class="count"><%=current_user.created_at.in_time_zone("Asia/Seoul").strftime("%m")%></span>/
+          <span class="count"><%=current_user.created_at.in_time_zone("Asia/Seoul").strftime("%d")%></span>
+        </p>
+      </li>
+      <li>
+        <p>클릭한 동영상</p>
+        <p><%=current_user.frequents.size%>개</p>
+      </li>
+    </ul>
+  </section><br>
   <section class="scraped">
     <!--nav tab-->
     <%= render partial: "mypage_nav"%>
@@ -48,3 +63,16 @@
 </div>
 
 <%= render partial: "showing_animation"%>
+<script>
+$('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 4000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+</script>
