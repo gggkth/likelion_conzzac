@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'register/info2'
 
   get 'visitor/main'
+  get 'visitor/main2'
   post '/search' => 'visitor#search'
   get '/search' => 'visitor#search'
   root 'visitor#main'
