@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  has_many :scraps
+  has_many :scraped_clips, through: :scraps, source: :clip
+  has_many :frequents
+  has_many :frequent_clips, through: :frequents, source: :clip
+  has_many :keywords
+  has_many :likes
+  has_many :liked_clips, through: :likes, source: :clip
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -65,5 +72,41 @@ class User < ActiveRecord::Base
 
   def email_required?
     false
+  end
+  
+  def view_this?(clip)
+    Frequent.find_by(user_id: self.id, clip_id: clip.id).present?
+  end
+  
+  def scrap_this?(clip)
+    Scrap.find_by(user_id: self.id, clip_id: clip.id).present?
+  end
+  
+  def like_this?(clip)
+    Like.find_by(user_id: self.id, clip_id: clip.id).present?
+  end
+  
+  def searched_this?(keyword)
+    self.keywords.find_by(content: keyword).present?
+  end
+  
+  def increse_keyword_frequency(keyword)
+    key = self.keywords.find_by(content: keyword)
+    key.frequency = key.frequency+1
+    key.save
+  end
+  
+  def create_keyword(keyword)
+    Keyword.create(user_id: self.id, content: keyword, frequency: "1")
+  end 
+  
+  def increse_frequent_frequency(clip)
+    frequent = Frequent.find_by(user_id: self.id, clip_id: clip.id)
+    frequent.frequency = frquent.frequency+1
+    frequent.save
+  end
+  
+  def create_frequent(clip)
+    Frequent.create(user_id: self.id, clip_id: clip.id, frequency: "1")
   end
 end

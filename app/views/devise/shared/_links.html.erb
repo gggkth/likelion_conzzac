@@ -6,38 +6,40 @@
           <% provider = "google plus" %>
         <% end %>
         <div>
-        <button class="ui fluid large <%= provider %> icon button sns">
-          <i class="<%= provider %> icon" style="float: left"></i>
-          <% if provider.to_s == "facebook" %>
-            <% sns = '페이스북' %>
-          <% elsif provider.to_s == "google plus" %>
-            <% sns = '구글' %>
-          <% else %>
-            <% sns = '카카오' %>
-          <% end %>
-          <%= sns %> 계정으로 로그인
-        </button>
+          <button class="ui fluid large <%= provider %> icon button sns social-login">
+            <i class="fa fa-<%=provider.to_s == "facebook" || provider.to_s == "google plus" ? provider :  "comment"%>" ></i>
+            <% if provider.to_s == "facebook" %>
+              <% sns = 'FACEBOOK' %>
+            <% elsif provider.to_s == "google plus" %>
+              <% sns = 'GOOGLE' %>
+            <% else %>
+              <% sns = 'KAKAO' %>
+            <% end %>
+            <%= sns %>
+          </button>
         </div>
       <% end -%>
     <% end -%>
   </div>
 <% end -%>
-<%- if controller_name != 'sessions' %>
-    <%= link_to "로그인", new_session_path(resource_name) %>
-<% end -%>
-
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-    <%= link_to "비밀번호 찾기", new_password_path(resource_name) %>&nbsp; | &nbsp;
-<% end -%>
-
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-    <%= link_to "가입하기", new_registration_path(resource_name), :name => 'test' %>
-<% end -%>
-
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
-<% end -%>
-
-<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
-<% end -%>
+<div class="py-3">
+  <%- if controller_name != 'sessions' %>
+      <%= link_to "로그인", new_session_path(resource_name) %>
+  <% end -%>
+  
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "비밀번호 찾기", new_password_path(resource_name), class:"mybutton" %>&nbsp;
+  <% end -%>
+  
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to "가입하기", new_registration_path(resource_name), class:"mybutton", :name => 'test' %>
+  <% end -%>
+  
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+  <% end -%>
+  
+  <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+    <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+  <% end -%>
+</div>  
