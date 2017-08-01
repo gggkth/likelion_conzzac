@@ -1,0 +1,69 @@
+<div class="container mypage">
+  <section class="user-info">
+    <ul class="mypage-header">
+      <li>
+        <%if current_user.profile_img?%>
+          <%=image_tag(current_user.profile_img)%>
+        <%else%>
+          <%=image_tag('if_profle_1055000.png',class:"d-inline-block mr-3",style:"display:inline-block")%>
+        <%end%>
+        <p class="user-email align-middle" style="display:inline-block">
+          <%=current_user.email%><br>
+          <%=link_to 'Sign out',destroy_user_session_path,class:"mybutton-reverse ", method: :delete%>
+        </p>
+      </li>  
+      <li >
+        <div class="fa fa-calendar-check-o mr-3" aria-hidden="true"></div>
+        <div class="d-inline-block">
+          <p class="mb-1 d-inline-block">가입일</p>
+          <div>
+            <span class="count"><%=current_user.created_at.in_time_zone("Asia/Seoul").strftime("%Y")%></span>/
+            <span class="count"><%=current_user.created_at.in_time_zone("Asia/Seoul").strftime("%m")%></span>/
+            <span class="count"><%=current_user.created_at.in_time_zone("Asia/Seoul").strftime("%d")%></span>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="fa fa-mouse-pointer mr-3" aria-hidden="true"></div>
+        <div class="d-inline-block">
+          <p class="mb-1 d-inline-block">클릭수</p>
+          <div><%=current_user.frequents.size%>번</div>
+        </div>  
+      </li>
+    </ul>
+  </section><br>
+  <section class="scraped">
+    <!--nav tab-->
+    <%= render partial: "mypage_nav"%>
+    <%if params[:name]%>
+      <div class="my-5" align=center>
+        <h3><%=@category%></h3>        ㅡ
+        <p class="mypage-eng"><%=@categoryEnglish%></p>
+        <i class="fa fa-chevron-down mt-2" aria-hidden="true" style="color:#5bc0de;"></i>
+      </div>
+    <%end%>  
+    <!--nab tab 끝-->
+    
+    <!--db구축 후 주석 해제>
+    <!--<div class="row container">-->
+    <!--  <%#@scraped_clips.each do |c|%>-->
+    <!--    <div class="col item img-fluid">-->
+          <!--<a href="<%#=c.clip_url%><%#=c.title%>"><img src="<%#= c.thumbnail_url %>"><%#= title["title"] %></a>
+    <!--    </div>  -->
+    <!--  <%#end%>-->
+    <!--</div>-->
+    <!--db구축 후 주석 해제 끝>
+    
+    <!--db구축 후 지우기-->
+    <div class="row container">
+      <!--최신 동영상 하나하나 -->
+      <% @title.each_with_index do |title, index| %>
+        <div class="col item img-fluid mypageBlock" >
+          <a href="<%=@home_url%><%=title["href"]%>"><img src="<%= @thumnail[index]["src"] %>"><%#= title["title"] %></a>
+        </div>
+      <% end %>
+    </div>
+    <!--db구축 후 지우기 끝-->
+    
+  </section>  
+</div>

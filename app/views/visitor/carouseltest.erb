@@ -1,0 +1,27 @@
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    <% @title.each_with_index do |title, index| %>
+      <a href="<%=@home_url%><%=title["href"]%>">
+        <div class="tile">
+          <div class="tile__media">
+            <img src="<%= @thumnail[index]["src"] %>">
+          </div>
+          <div class="tile__details">
+            <div class="tile__title">
+              <%= truncate(title["title"], length:30) %>
+            </div>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+

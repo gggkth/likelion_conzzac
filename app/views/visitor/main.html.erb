@@ -1,21 +1,83 @@
+
+
+
+<!--<div class="container">-->
+  <!--최신 동영상-->
+<!--  <div class="garo-item">-->
+<!--    <div class="container"><h3>최신 동영상</h3></div>-->
+<!--    <div class="row container">-->
+<!--      <% @title.each_with_index do |title, index| %>-->
+<!--        <div class="col">-->
+<!--          <div class="item">-->
+<!--            <a href="<%=@home_url%><%=title["href"]%>"><img src="<%= @thumnail[index]["src"] %>"></a>-->
+<!--          </div>-->
+<!--          <div class="item-info">-->
+<!--            <i class="fa fa-play-circle-o" aria-hidden="true" style="white"></i>-->
+            <!--[동영상 제작자]-->
+<!--            <%= truncate(title["title"], length:15) %>-->
+            <!--동영상 설명-->
+            
+            <!--좋아요버튼-->
+            <!--보관함 버튼-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      <% end %>-->
+<!--    </div>-->
+<!--  </div>-->
+  <!--추천 동영상-->
+<!--  <div class="garo-item">-->
+<!--    <div class="container"><h3>추천 동영상</h3></div>-->
+<!--    <div class="row container">-->
+<!--      <% @title.each_with_index do |title, index| %>-->
+<!--        <div class="col">-->
+<!--          <div class="item">-->
+<!--            <a href="<%=@home_url%><%=title["href"]%>"><img src="<%= @thumnail[index]["src"] %>"></a>-->
+<!--          </div>-->
+          
+<!--          <i class="fa fa-play-circle-o" aria-hidden="true" style="white"></i>-->
+          <!--[동영상 제작자]-->
+<!--          <%= truncate(title["title"], length:15) %>-->
+          <!--동영상 설명-->
+          
+          <!--좋아요버튼-->
+          <!--보관함 버튼-->
+<!--        </div>-->
+<!--      <% end %>-->
+<!--    </div>-->
+     
+<!--  </div>-->
+<!--</div>-->
+<!--<hr>-->
+
+        
+
+
+
+<!--netflix-->
 <div class="container">
-  <div class="garo-item">
-    <!--작은 타이틀: 최신 동영상-->
-    <div class="container"><h3>최신 동영상</h3></div>
-    
-    <!--최신 동영상 목록-->
-    <div class="row container">
-      <!--최신 동영상 하나하나 -->
+
+  <h1>최신동영상</h1>
+
+  <div class="row">
+    <div class="row__inner">
       <% @title.each_with_index do |title, index| %>
+<<<<<<< HEAD
         <div class="col item img-fluid" onmouseover="">
           <a href="<%=@home_url%><%=title["href"]%>"><img src="<%= @thumnail[index]["src"] %>"><%#= title["title"] %></a>
+=======
+      <div class="tile">
+        <div class="tile__media">
+          <a href="<%=@home_url%><%=title["href"]%>"><img src="<%= @thumnail[index]["src"] %>"></a>
+>>>>>>> ca4b1a4dac13bd98904fa069167932d70a2e52b9
         </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            <%= truncate(title["title"], length:15) %>
+          </div>
+        </div>
+      </div>
       <% end %>
     </div>
-     
   </div>
+
 </div>
-
-
-<!--마우스오버시-->
-<!--재생버튼/타이틀/내용/좋아요/보관하기-->

@@ -87,11 +87,11 @@ class User < ActiveRecord::Base
   end
   
   def searched_this?(keyword)
-    self.keywords.find_by(content: keyword.content).present?
+    self.keywords.find_by(content: keyword).present?
   end
   
   def increse_keyword_frequency(keyword)
-    key = self.keywords.find_by(content: keyword.content)
+    key = self.keywords.find_by(content: keyword)
     key.frequency = key.frequency+1
     key.save
   end
