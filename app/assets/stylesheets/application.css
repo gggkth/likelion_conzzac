@@ -1,0 +1,306 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body {
+    background-color: black;
+}
+
+.container {
+    color: white;
+    
+}
+
+
+/* 
+ *
+ * 네비게이션
+ *
+ */
+navbar-brand, nav-item, nav-link {
+    /*컬러 왜 안먹혀*/
+    color : white;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*.search:focus {*/
+/*    background-color: yellow;*/
+/*}*/
+
+
+/*test*/
+/*#slideout {*/
+/*  position: fixed;*/
+/*  top: 40px;*/
+/*  left: 0;*/
+/*  -webkit-transition-duration: 0.3s;*/
+/*  -moz-transition-duration: 0.3s;*/
+/*  -o-transition-duration: 0.3s;*/
+/*  transition-duration: 0.3s;*/
+/*}*/
+/*#slideout_inner {*/
+/*  position: fixed;*/
+/*  top: 40px;*/
+/*  left: -250px;*/
+/*  -webkit-transition-duration: 0.3s;*/
+/*  -moz-transition-duration: 0.3s;*/
+/*  -o-transition-duration: 0.3s;*/
+/*  transition-duration: 0.3s;*/
+/*}*/
+/*#slideout::after {*/
+/*  left: 250px;*/
+/*}*/
+/*#slideout::after #slideout_inner {*/
+/*  left: 0;*/
+/*}*/
+
+/* 
+ *
+ * 메인 페이지 
+ *
+ */
+ 
+.garo-item {
+    color: white;
+    margin-top: 50px;
+    
+}
+
+.item {
+    padding-top: 10px ;
+    margin-top: 10px;
+}
+
+.item:hover {
+    background: black ;
+    opacity: 0.2;
+}
+
+h3 {
+    color: white;
+    
+    
+}
+
+.user-email{
+    margin-top:20px;
+    color:white;
+}
+
+.user-info{
+  /*position:relative;*/
+  /*height: 200px;*/
+  /*display: -webkit-flex;*/
+  /*display: flex;*/
+  /*-webkit-justify-content: center;*/
+  /*justify-content: center;*/
+  /*-webkit-align-items: center;*/
+  /*align-items: center;*/
+    
+}
+
+.mypage{
+  padding: 60px 0px 0px 0px;
+}
+
+.line{
+  border: solid 1px #afafaf;
+  margin: 20px 0px 20px 0px;
+}
+
+.scrap-star{
+  color:#ffd700 !important;
+  font-size:1rem;
+}
+
+.scraped{
+  color:white;
+  margin:50px 0 0 0 ;
+}
+
+.mypage-eng{
+  color:#777;
+}
+
+
+
+
+.hiddenForAnimation{ opacity:0; }
+.login{
+  background-color:white;
+  width:333px;
+  color:black;
+}
+
+.login-button{
+  width:100%;
+  padding:5px 5px;
+  border:none;
+  background-color:rgb(33, 133, 89);
+  color:white;
+  cursor:pointer;
+}
+
+.social-login{
+  width:100%;
+  padding:5px 5px;
+  border:none;
+  color:white;
+  cursor:pointer;
+}
+
+.facebook{
+ background-color:rgb(6, 162, 203);
+}
+
+.google{
+ background-color:rgb(221, 30, 47);
+}
+
+.kakao{
+ background-color:rgb(235, 176, 53);
+}
+
+.login-field{
+  border:none!important;
+  background-color:#ededed;
+  width:80%;
+}
+
+.facebook:hover {
+	box-shadow: inset 22rem 0 0 0 #036b86;
+	-webkit-transition:.5s;
+}
+.login-button:hover {
+	box-shadow: inset -22rem 0 0 0 #195f40;
+	-webkit-transition:.5s;
+} 
+.google:hover {
+	box-shadow: inset -22rem 0 0 0 #ad222f;
+	-webkit-transition:.5s;
+} 
+.kakao:hover {
+	box-shadow: inset 22rem 0 0 0 #c59530;
+	-webkit-transition:.5s;
+} 
+
+.mybutton{
+  color:black;
+  border: solid 1px black ;
+  border-radius:5px;
+  padding: 5px 10px;
+  font-size:0.9rem;
+}
+
+.mybutton:hover{
+  color:white!important;
+  text-decoration: none!important;
+  background-color:black;
+  
+  -webkit-transition:.5s;
+}
+
+.mybutton-reverse{
+  color:#aaa;
+  border-radius:5px;
+  padding: 5px 0px;
+}
+
+.mybutton-reverse:hover{
+  color:#5bc0de!important;
+  text-decoration: none!important;
+  -webkit-transition:.5s;
+}
+
+.login-fa{
+  font-size:1.2rem;
+}
+
+.mypage-header li{
+  display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    width: 2%;
+}
+
+.mypage-header li p:first-child{
+  font-weight: bold;
+  font-size:1.5em;
+}
+
+/*.mypage-header li p:not(:first-child){*/
+/*  font-size:0.1em;*/
+/*}*/
+
+.mypage-header{
+  list-style: none;
+    padding: 0;
+    margin: 0;
+    display: table;
+    table-layout: fixed;
+}
+
+.mypage-header>li>.fa{
+  font-size:4rem;
+  color:#bfbfbf;
+}
+
+.mypage-header>li>div:nth-child(2)>div{
+  color:#5bc0de;
+  font-size:1.2rem;
+}
+
+/*.mypage-header>li>.fa::after{*/
+/*  margin-right:50px;*/
+/*}*/
+
+.login-image{
+  
+  width:10rem;
+  
+}
+
+.margin{
+  height:4rem;
+}
+
+.sign-up-entire{
+  position:relative;
+  top:-5rem;
+  color:black !important;
+}
+.sign-up-entire p{
+  color:black !important;
+}
+.gray-color-font{
+  color:#777!important;
+}
