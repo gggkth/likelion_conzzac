@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  
+  recommends :clips
+  
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # user와 identity가 nil이 아니라면 받는다

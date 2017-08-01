@@ -1,7 +1,7 @@
 class CreateUploaders < ActiveRecord::Migration
   def change
     create_table :uploaders do |t|
-      t.integer :name
+      t.string :name
 
       t.timestamps null: false
     end

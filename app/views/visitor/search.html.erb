@@ -2,16 +2,25 @@
   <div class="garo-item">
     <!--검색 결과-->
     <div class="container"><h3>#<%= params[:search] %>에 대한 검색 결과</h3></div>
-    
+    <h4>Page(<%=$page%> / <%= $last_page %>)</h4>
     <!--검색 목록-->
     <div class="row container">
       <!--최신 동영상 하나하나 -->
       <% @title.each_with_index do |title, index| %>
         <div class="col item img-fluid">
-          <a href="<%=@home_url%><%=title["href"]%>"><img src="<%= @thumnail[index]["src"] %>"></a>
+          <a href="<%=@home_url%><%=title["href"]%>"><img src="<%= @thumnail[index]["src"] %>"><%= @playtime[index].text %></a>
         </div>
       <% end %>
+    
     </div>
-     
+    <% if $page > 1 %>
+      <%= link_to "<Prev", "/prev_page/#{params[:search]}" %> | 
+    <% end %>
+    <% if $page < $last_page %>
+      <%= link_to "Next>", "/next_page/#{params[:search]}" %>
+    <% end %>
   </div>
 </div>
+
+
+     

@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20170721070520) do
   end
 
   create_table "uploaders", force: :cascade do |t|
-    t.integer  "name"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

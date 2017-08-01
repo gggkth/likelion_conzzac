@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   resources :clip, except: [:new, :edit, :update, :delete, :show]
   post 'scrap/:id' => 'clip#scrap_toggle'
   post 'like/:id' => 'clip#like_toggle'
+  get '/next_page/:search' => 'visitor#next_page'
+  get '/prev_page/:search' => 'visitor#prev_page'
 
 end

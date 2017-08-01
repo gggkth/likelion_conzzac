@@ -30,6 +30,11 @@ gem 'omniauth-kakao', :git => 'git://github.com/hcn1519/omniauth-kakao'
 gem 'figaro'
 gem 'mailboxer'
 gem 'nokogiri'
+gem 'rails_db'
+gem 'recommendable'
+gem 'sidekiq'
+gem 'sidekiq-middleware'
+gem 'redis-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
