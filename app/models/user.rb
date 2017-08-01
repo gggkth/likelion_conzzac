@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
 
     identity = Identity.find_for_oauth(auth)
     user = signed_in_resource ? signed_in_resource : identity.user
-
     # user가 nil이라면 새로 만든다.
 
     if user.nil?
