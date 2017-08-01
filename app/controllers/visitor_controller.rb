@@ -83,7 +83,6 @@ class VisitorController < ApplicationController
     @thumnail = doc.css('a.cds_thm > img')
   end  
   
->>>>>>> 1dece93717170a594d0d3c764cdc0197e1d51288
   def search
     @home_url = "http://tv.naver.com"
     temp = "#{@home_url}/search/clip?query=#{params[:search]}&isTag=false"
