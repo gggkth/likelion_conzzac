@@ -91,4 +91,5 @@ class VisitorController < ApplicationController
     @title = doc.css('dt > a')
     @thumnail = doc.css('a.cds_thm > img')
   end
+  
 end

@@ -24,7 +24,7 @@
 <% end -%>
 <div class="py-3">
   <%- if controller_name != 'sessions' %>
-      <%= link_to "로그인", new_session_path(resource_name) %>
+      <%= link_to "로그인", new_session_path(resource_name), class:"mybutton" %>
   <% end -%>
   
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>

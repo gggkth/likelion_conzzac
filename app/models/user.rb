@@ -100,7 +100,7 @@ class User < ActiveRecord::Base
     Keyword.create(user_id: self.id, content: keyword, frequency: "1")
   end 
   
-  def increse_frequent_frequency(clip)
+  def increase_frequent_frequency(clip)
     frequent = Frequent.find_by(user_id: self.id, clip_id: clip.id)
     frequent.frequency = frquent.frequency+1
     frequent.save

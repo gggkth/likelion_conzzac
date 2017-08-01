@@ -5,9 +5,15 @@
         <%if current_user.profile_img?%>
           <%=image_tag(current_user.profile_img)%>
         <%else%>
+<<<<<<< HEAD
           <%=image_tag('if_profle_1055000.png',class:"d-inline-block mr-3",style:"display:inline-block")%>
         <%end%>
         <p class="user-email align-middle" style="display:inline-block">
+=======
+          <%=image_tag('if_profle_1055000.png',class:"d-inline-block mr-3")%>
+        <%end%>
+        <p class="user-email d-inline-block align-middle">
+>>>>>>> ab3b6593c52579cee90a690465dcfe4fbae15157
           <%=current_user.email%><br>
           <%=link_to 'Sign out',destroy_user_session_path,class:"mybutton-reverse ", method: :delete%>
         </p>
@@ -66,4 +72,23 @@
     <!--db구축 후 지우기 끝-->
     
   </section>  
+<<<<<<< HEAD
 </div>
+=======
+</div>
+
+<%= render partial: "showing_animation"%>
+<script>
+$('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 4000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+</script>
+>>>>>>> ab3b6593c52579cee90a690465dcfe4fbae15157

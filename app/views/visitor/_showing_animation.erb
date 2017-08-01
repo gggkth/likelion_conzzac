@@ -1,0 +1,9 @@
+<script>
+    $(function(){
+        var delay = 100, animationSpeed = 800;
+        $('.mypageBlock').addClass('hiddenForAnimation').each(function(i){
+            $(this).delay(delay * i).animate({'opacity': '1','top': '20px'}, animationSpeed
+            );
+        });
+    });
+</script>
